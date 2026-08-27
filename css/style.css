@@ -13,7 +13,7 @@
 html,body{ height:100%; }
 body{
   margin:0; font-family:"ChampFleury", "IM Fell English", Georgia, serif; color:var(--ink);
-  background:linear-gradient(160deg, #5c4530, #2e2015);
+  background:linear-gradient(160deg, #3a2a1c, #1c130c);
   display:flex; align-items:center; justify-content:center;
   padding:clamp(10px,3vw,40px); min-height:100%; -webkit-font-smoothing:antialiased;
 }
