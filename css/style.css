@@ -13,20 +13,19 @@
 html,body{ height:100%; }
 body{
   margin:0; font-family:"ChampFleury", "IM Fell English", Georgia, serif; color:var(--ink);
-  background:#1a130c;
+  background:linear-gradient(160deg, #4a3018, #241609);
   display:flex; align-items:center; justify-content:center;
   padding:clamp(10px,3vw,40px); min-height:100%; -webkit-font-smoothing:antialiased;
 }
 body::before{
-  content:""; position:fixed; inset:-40px; z-index:-1;
-  background-image:
-    radial-gradient(ellipse at center, rgba(21,16,10,0) 35%, rgba(21,16,10,.55) 75%, rgba(10,7,4,.9) 100%),
-    linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
-    url('../assets/images/table.webp');
-  background-size:cover, cover, 93% 93%;
-  background-repeat:no-repeat, no-repeat, no-repeat;
-  background-position:center, center, center;
-  filter:blur(3px);
+  content:""; position:fixed; inset:-40px; z-index:-2;
+  background-image:url('../assets/images/table-tex.jpg');
+  background-size:480px; background-repeat:repeat;
+  mix-blend-mode:multiply; opacity:.75;
+}
+body::after{
+  content:""; position:fixed; inset:-40px; z-index:-1; pointer-events:none;
+  background-image:radial-gradient(ellipse at center, rgba(21,16,10,0) 35%, rgba(21,16,10,.55) 75%, rgba(10,7,4,.85) 100%);
 }
 .flipbook{ position:relative; z-index:1; }
 .book-case{ position:absolute; z-index:0; left:0; top:0; width:0; height:0; opacity:0; pointer-events:none;
