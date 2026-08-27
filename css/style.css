@@ -13,7 +13,7 @@
 html,body{ height:100%; }
 body{
   margin:0; font-family:"ChampFleury", "IM Fell English", Georgia, serif; color:var(--ink);
-  background:linear-gradient(160deg, #a8703a, #6b4522);
+  background:linear-gradient(160deg, #5c4530, #2e2015);
   display:flex; align-items:center; justify-content:center;
   padding:clamp(10px,3vw,40px); min-height:100%; -webkit-font-smoothing:antialiased;
 }
@@ -25,7 +25,7 @@ body::before{
 }
 body::after{
   content:""; position:fixed; inset:-40px; z-index:-1; pointer-events:none;
-  background-image:radial-gradient(ellipse at center, rgba(21,16,10,0) 35%, rgba(21,16,10,.55) 75%, rgba(10,7,4,.85) 100%);
+  background-image:radial-gradient(ellipse at center, rgba(10,7,4,0) 20%, rgba(10,7,4,.5) 55%, rgba(6,4,2,.92) 95%);
 }
 .flipbook{ position:relative; z-index:1; }
 .book-case{ position:absolute; z-index:0; left:0; top:0; width:0; height:0; opacity:0; pointer-events:none;
