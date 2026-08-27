@@ -1,0 +1,135 @@
+
+@font-face{ font-family:"ChampFleury"; src:url('../assets/fonts/ChampFleury.ttf') format('truetype'); font-display:swap; }
+:root{
+  --vellum:#eee2c4; --vellum-deep:#e4d6af;
+  --ink:#2a2014; --ink-soft:#4a3c28;
+  --gold:#9c7c2c; --gold-bright:#c2a04e;
+  --oxblood:#6f1d18;
+  --leather:#46100f;
+  --gilt:#c9a23a; --gilt-bright:#e8cd7e; --gilt-dim:#8a6a22;
+  --edge:#3a2c1a; --shadow:rgba(30,20,8,.45);
+}
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0; font-family:"ChampFleury", "IM Fell English", Georgia, serif; color:var(--ink);
+  background:#1a130c;
+  display:flex; align-items:center; justify-content:center;
+  padding:clamp(10px,3vw,40px); min-height:100%; -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:""; position:fixed; inset:-40px; z-index:-1;
+  background-image:
+    radial-gradient(ellipse at center, rgba(21,16,10,0) 35%, rgba(21,16,10,.55) 75%, rgba(10,7,4,.9) 100%),
+    linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+    url('../assets/images/table.webp');
+  background-size:cover, cover, cover;
+  background-repeat:no-repeat, no-repeat, no-repeat;
+  background-position:center, center, center;
+  filter:blur(3px);
+}
+.flipbook{ position:relative; z-index:1; }
+.book-case{ position:absolute; z-index:0; left:0; top:0; width:0; height:0; opacity:0; pointer-events:none;
+  border-radius:8px; overflow:hidden;
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(132,46,38,.40), transparent 60%),
+    linear-gradient(135deg,#3c1311,#250b0a);
+  box-shadow:0 22px 55px rgba(0,0,0,.6), 0 4px 14px rgba(0,0,0,.5),
+    inset 0 0 0 2px rgba(201,162,58,.16), inset 0 0 50px rgba(0,0,0,.5);
+  transition:opacity .35s ease, left .3s ease, top .3s ease, width .3s ease, height .3s ease; }
+.case-tex{ position:absolute; inset:0; mix-blend-mode:overlay; opacity:.5;
+  background-repeat:repeat; background-size:230px; }
+.case-spine{ position:absolute; top:8px; bottom:8px; left:50%; width:30px; transform:translateX(-50%);
+  background:linear-gradient(90deg, rgba(0,0,0,0), rgba(15,6,5,.60) 46%, rgba(40,18,14,.25) 50%, rgba(15,6,5,.60) 54%, rgba(0,0,0,0));
+  opacity:0; transition:opacity .35s ease; }
+.book-case.spread .case-spine{ opacity:1; }
+.page-inner{ position:absolute; inset:0; z-index:2; display:flex; flex-direction:column;
+  padding:clamp(20px,3.2vw,38px); }
+.tex{ position:absolute; inset:0; z-index:1; pointer-events:none; mix-blend-mode:multiply;
+  background-repeat:repeat; background-size:256px; opacity:.3; }
+.page:not(.page-cover)::after{ content:""; position:absolute; inset:0; pointer-events:none; z-index:3;
+  box-shadow: inset 16px 0 22px -18px rgba(40,26,10,.5), inset -16px 0 22px -18px rgba(40,26,10,.5); }
+
+
+.page{ position:relative; background:var(--vellum);
+  background-image:
+    radial-gradient(circle at 78% 22%, rgba(120,90,40,.10), transparent 38%),
+    radial-gradient(circle at 12% 82%, rgba(110,80,30,.11), transparent 42%),
+    radial-gradient(circle at 50% 50%, rgba(255,250,235,.18), transparent 70%),
+    linear-gradient(135deg, var(--vellum), var(--vellum-deep));
+  box-shadow:0 0 0 1px rgba(40,30,15,.18) inset; overflow:hidden; }
+
+
+
+
+
+.titlerule{ border:0; height:1px; width:min(58%,230px); margin:12px auto 14px;
+  background:linear-gradient(90deg, transparent, rgba(58,44,26,.5) 22%, rgba(58,44,26,.5) 78%, transparent); }
+
+.m-head{ text-align:center; }
+.m-name{ font-family:"Cinzel", serif; font-weight:700; font-size:clamp(1.7rem,5.6vw,2.5rem);
+  letter-spacing:.04em; line-height:1.05; margin:.1em 0 0; color:var(--ink); }
+.m-epithet{ font-style:italic; color:var(--ink-soft); text-align:center;
+  font-size:clamp(1rem,2.8vw,1.16rem); margin-top:.4em; }
+.m-deeds{ font-size:clamp(1rem,2.7vw,1.08rem); line-height:1.62; text-align:justify;
+  hyphens:auto; flex:1; overflow:auto; padding-right:18px; color:rgba(50,38,24,.95); }
+.m-deeds p{ margin:0 0 .8em; }
+.m-deeds{ scrollbar-width:thin; scrollbar-color:#7a201b transparent; }
+.m-deeds::-webkit-scrollbar{ width:8px; }
+.m-deeds::-webkit-scrollbar-track{ background:transparent; margin:4px 0; }
+.m-deeds::-webkit-scrollbar-thumb{ background:linear-gradient(180deg,#8a2a22,#5c1714);
+  border-radius:6px; border:1px solid rgba(40,20,12,.45); }
+.m-deeds::-webkit-scrollbar-thumb:hover{ background:linear-gradient(180deg,#9c3328,#6f1d18); }
+.m-deeds p:first-of-type::first-letter{ font-family:"Cinzel", serif; font-weight:700;
+  font-size:3.1em; line-height:.82; float:left; padding:.04em .09em 0 0;
+  color:var(--oxblood); text-shadow:.5px .5px 0 var(--gold-bright); }
+.m-deeds.cont p:first-of-type::first-letter{ all:unset; }
+.footer-art{ display:block; width:100%; max-width:520px; height:auto; margin:12px auto 0; opacity:.92; }
+
+.page.page-cover{ background:
+    radial-gradient(circle at 30% 20%, rgba(122,40,34,.45), transparent 42%),
+    radial-gradient(circle at 74% 72%, rgba(86,22,18,.55), transparent 48%),
+    radial-gradient(circle at 50% 46%, #5a1a17, #380f0e 80%),
+    linear-gradient(135deg, #4c1413, #340c0b);
+  box-shadow:inset 0 0 70px rgba(0,0,0,.6), inset 0 2px 0 rgba(180,90,70,.22); }
+.page-cover .tex{ mix-blend-mode:overlay; background-size:230px; opacity:.55; }
+.page-cover .page-inner{ padding:clamp(26px,4.4vw,46px); justify-content:center; }
+.page-cover::after{ content:""; position:absolute; inset:clamp(14px,3.2vw,24px); pointer-events:none; z-index:3;
+  border:2px solid var(--gilt); outline:1px solid var(--gilt-dim); outline-offset:5px;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.3); opacity:.92; }
+.front{ flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+.front-title{ font-family:"Manufacturing Consent", serif; font-weight:400;
+  font-size:clamp(1.8rem,3.1vw,2.7rem); line-height:1.08; color:var(--gilt-bright);
+  text-shadow:0 1px 0 #5a3e12, 0 -1px 0 rgba(255,244,205,.35), 0 2px 4px rgba(0,0,0,.45); margin:0 0 .14em; }
+.front-tag{ font-family:"IM Fell English", serif; font-style:italic; color:#ecdcae;
+  font-size:clamp(1rem,1.6vw,1.28rem); letter-spacing:.02em; margin-bottom:clamp(16px,2.2vw,26px); }
+.heraldry{ width:clamp(140px,14vw,210px); height:auto; align-self:center;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,.5)); }
+.back{ gap:18px; }
+.blankmark{ margin:auto; text-align:center; font-family:"Cinzel", serif;
+  font-size:clamp(1.6rem,3vw,2.4rem); color:var(--gilt-dim); opacity:.2; }
+.heraldry-sm{ width:clamp(90px,9vw,140px); }
+.back-line{ font-family:"Cinzel", serif; letter-spacing:.12em; color:var(--gilt-bright);
+  font-size:clamp(.9rem,1.4vw,1.1rem); }
+
+.stage{ display:flex; flex-direction:column; align-items:center; gap:14px; width:min(94vw,1080px); position:relative; }
+.controls{ display:flex; align-items:center; justify-content:center; gap:14px;
+  padding:7px 18px; border-radius:24px;
+  background:linear-gradient(180deg,#3a1412,#280d0b);
+  border:1px solid rgba(201,162,58,.32);
+  box-shadow:0 6px 16px rgba(0,0,0,.45), inset 0 1px 0 rgba(190,100,80,.18); }
+.nav-arrow{ background:transparent; border:0; cursor:pointer; color:var(--gilt);
+  width:34px; height:34px; display:flex; align-items:center; justify-content:center;
+  opacity:.85; transition:opacity .2s, transform .2s; }
+.nav-arrow svg{ width:20px; height:20px; filter:drop-shadow(0 1px 1px rgba(0,0,0,.4)); }
+.nav-arrow:hover:not(:disabled){ opacity:1; transform:scale(1.12); }
+.nav-arrow:focus-visible{ outline:2px solid var(--gilt); outline-offset:2px; }
+.nav-arrow:disabled{ opacity:.22; cursor:default; }
+.page-count{ font-family:"IM Fell English SC", serif; color:var(--gilt); font-size:.82rem;
+  letter-spacing:.12em; min-width:54px; text-align:center; }
+.mute{ background:transparent; border:0; cursor:pointer; color:var(--gilt);
+  width:30px; height:30px; display:flex; align-items:center; justify-content:center;
+  opacity:.7; transition:opacity .2s, transform .2s; }
+.mute:hover, .mute:focus-visible{ opacity:1; outline:none; transform:scale(1.1); }
+.mute svg{ width:18px; height:18px; filter:drop-shadow(0 1px 1px rgba(0,0,0,.4)); }
+.bar-sep{ width:1px; height:20px; background:rgba(201,162,58,.30); }
