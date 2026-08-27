@@ -13,7 +13,7 @@
 html,body{ height:100%; }
 body{
   margin:0; font-family:"ChampFleury", "IM Fell English", Georgia, serif; color:var(--ink);
-  background:linear-gradient(160deg, #4a3018, #241609);
+  background:linear-gradient(160deg, #a8703a, #6b4522);
   display:flex; align-items:center; justify-content:center;
   padding:clamp(10px,3vw,40px); min-height:100%; -webkit-font-smoothing:antialiased;
 }
@@ -21,7 +21,7 @@ body::before{
   content:""; position:fixed; inset:-40px; z-index:-2;
   background-image:url('../assets/images/table-tex.jpg');
   background-size:480px; background-repeat:repeat;
-  mix-blend-mode:multiply; opacity:.75;
+  mix-blend-mode:overlay; opacity:.85;
 }
 body::after{
   content:""; position:fixed; inset:-40px; z-index:-1; pointer-events:none;
