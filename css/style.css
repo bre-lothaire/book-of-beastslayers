@@ -113,23 +113,3 @@ body::before{
   font-size:clamp(.9rem,1.4vw,1.1rem); }
 
 .stage{ display:flex; flex-direction:column; align-items:center; gap:14px; width:min(94vw,1080px); position:relative; }
-.controls{ display:flex; align-items:center; justify-content:center; gap:14px;
-  padding:7px 18px; border-radius:24px;
-  background:linear-gradient(180deg,#3a1412,#280d0b);
-  border:1px solid rgba(201,162,58,.32);
-  box-shadow:0 6px 16px rgba(0,0,0,.45), inset 0 1px 0 rgba(190,100,80,.18); }
-.nav-arrow{ background:transparent; border:0; cursor:pointer; color:var(--gilt);
-  width:34px; height:34px; display:flex; align-items:center; justify-content:center;
-  opacity:.85; transition:opacity .2s, transform .2s; }
-.nav-arrow svg{ width:20px; height:20px; filter:drop-shadow(0 1px 1px rgba(0,0,0,.4)); }
-.nav-arrow:hover:not(:disabled){ opacity:1; transform:scale(1.12); }
-.nav-arrow:focus-visible{ outline:2px solid var(--gilt); outline-offset:2px; }
-.nav-arrow:disabled{ opacity:.22; cursor:default; }
-.page-count{ font-family:"IM Fell English SC", serif; color:var(--gilt); font-size:.82rem;
-  letter-spacing:.12em; min-width:54px; text-align:center; }
-.mute{ background:transparent; border:0; cursor:pointer; color:var(--gilt);
-  width:30px; height:30px; display:flex; align-items:center; justify-content:center;
-  opacity:.7; transition:opacity .2s, transform .2s; }
-.mute:hover, .mute:focus-visible{ opacity:1; outline:none; transform:scale(1.1); }
-.mute svg{ width:18px; height:18px; filter:drop-shadow(0 1px 1px rgba(0,0,0,.4)); }
-.bar-sep{ width:1px; height:20px; background:rgba(201,162,58,.30); }

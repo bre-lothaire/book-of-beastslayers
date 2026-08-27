@@ -182,8 +182,6 @@ function buildPageDefs(splits){
 }
 let PAGE_DEFS = buildPageDefs(null);
 const flipbook = document.getElementById('flipbook');
-const prevBtn=document.getElementById('prev'), nextBtn=document.getElementById('next'),
-      muteBtn=document.getElementById('mute'), pagecount=document.getElementById('pagecount');
 const stage=document.querySelector('.stage'), bookcase=document.getElementById('bookcase');
 document.getElementById('casetex').style.backgroundImage='url('+LEATHER+')';
 const pageNodes = [];
@@ -202,11 +200,6 @@ function buildPages(){
   });
 }
 let pf=null;
-function updateCount(idx){
-  const total=pf?pf.getPageCount():PAGE_DEFS.length;
-  pagecount.innerHTML = (idx<=0) ? '⚜' : (idx+' / '+(total-1));
-  prevBtn.disabled = idx<=0; nextBtn.disabled = idx>=total-1;
-}
 function centerIfSingle(idx){
   const total = pf?pf.getPageCount():PAGE_DEFS.length;
   const single = (idx<=0) || (idx>=total-1);
@@ -247,22 +240,18 @@ function initFlip(){
     useMouseEvents:true, disableFlipByClick:true, mobileScrollSupport:true
   });
   pf.loadFromHTML(flipbook.querySelectorAll('.page'));
-  updateCount(pf.getCurrentPageIndex());
-  pf.on('flip', e=>{ updateCount(e.data); centerIfSingle(e.data); });
+  pf.on('flip', e=>{ centerIfSingle(e.data); });
   pf.on('changeState', e=>{
     const s=e.data;
     if(s==='read'){ centerIfSingle(pf.getCurrentPageIndex()); }
     else if(s==='flipping' || s==='user_fold'){
       playPageSound();
       flipbook.style.transform='';
-      bookcase.style.opacity='0'; bookcase.classList.remove('spread');
     }
   });
   requestAnimationFrame(()=>centerIfSingle(pf.getCurrentPageIndex()));
   setTimeout(()=>centerIfSingle(pf.getCurrentPageIndex()), 90);
 }
-prevBtn.addEventListener('click', ()=>{ if(pf) pf.flipPrev(); });
-nextBtn.addEventListener('click', ()=>{ if(pf) pf.flipNext(); });
 document.addEventListener('keydown', e=>{ if(!pf) return; if(e.key==='ArrowLeft')pf.flipPrev(); if(e.key==='ArrowRight')pf.flipNext(); });
 let resizeT=null;
 window.addEventListener('resize', ()=>{ clearTimeout(resizeT); resizeT=setTimeout(()=>{
@@ -289,13 +278,6 @@ document.addEventListener('scroll', e=>{
   const prev=lastScroll.get(t)||0;
   if(Math.abs(t.scrollTop-prev)>=34){ lastScroll.set(t,t.scrollTop); scrollTick(); }
 }, true);
-
-const muteIcon=document.getElementById('mute-icon');
-const ON='<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/>';
-const OFF='<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/>';
-muteBtn.addEventListener('click', ()=>{ muted=!muted; muteBtn.setAttribute('aria-pressed',String(muted));
-  muteBtn.setAttribute('aria-label', muted?'Unmute page sound':'Mute page sound'); muteIcon.innerHTML = muted?OFF:ON;
-  pageTurnAudio.muted=muted; });
 
 initFlip();
 
