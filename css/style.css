@@ -93,9 +93,6 @@ body::after{
   box-shadow:inset 0 0 70px rgba(0,0,0,.6), inset 0 2px 0 rgba(180,90,70,.22); }
 .page-cover .tex{ mix-blend-mode:overlay; background-size:230px; opacity:.55; }
 .page-cover .page-inner{ padding:clamp(26px,4.4vw,46px); justify-content:center; }
-.page-cover::after{ content:""; position:absolute; inset:clamp(14px,3.2vw,24px); pointer-events:none; z-index:3;
-  border:2px solid var(--gilt); outline:1px solid var(--gilt-dim); outline-offset:5px;
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.3); opacity:.92; }
 .front{ flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
 .front-title{ font-family:"Manufacturing Consent", serif; font-weight:400;
   font-size:clamp(1.8rem,3.1vw,2.7rem); line-height:1.08; color:var(--gilt-bright);
@@ -104,11 +101,7 @@ body::after{
   font-size:clamp(1rem,1.6vw,1.28rem); letter-spacing:.02em; margin-bottom:clamp(16px,2.2vw,26px); }
 .heraldry{ width:clamp(140px,14vw,210px); height:auto; align-self:center;
   filter:drop-shadow(0 6px 14px rgba(0,0,0,.5)); }
-.back{ gap:18px; }
 .blankmark{ margin:auto; text-align:center; font-family:"Cinzel", serif;
   font-size:clamp(1.6rem,3vw,2.4rem); color:var(--gilt-dim); opacity:.2; }
-.heraldry-sm{ width:clamp(90px,9vw,140px); }
-.back-line{ font-family:"Cinzel", serif; letter-spacing:.12em; color:var(--gilt-bright);
-  font-size:clamp(.9rem,1.4vw,1.1rem); }
 
 .stage{ display:flex; flex-direction:column; align-items:center; gap:14px; width:min(94vw,1080px); position:relative; }

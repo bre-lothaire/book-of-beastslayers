@@ -85,7 +85,7 @@ function pageHTML(headerHTML, paragraphs, footerHTML, cont){
   const cls = 'm-deeds'+(cont?' cont':'');
   return (headerHTML?headerHTML+'\n    ':'')+`<div class="${cls}">${deeds}</div>`+(footerHTML||'');
 }
-function renderBack(){ return `<div class="front back"><img class="heraldry heraldry-sm" src="${HERALDRY}" alt=""><div class="back-line">Bohemond's Beastslayers</div></div>`; }
+function renderBack(){ return `<div class="front back"></div>`; }
 function renderBlank(){ return `<div class="blankmark">⚜</div>`; }
 
 const FRONT_PAGES = {
