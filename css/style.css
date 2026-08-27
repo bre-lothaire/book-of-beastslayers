@@ -21,7 +21,7 @@ body::before{
   content:""; position:fixed; inset:-40px; z-index:-2;
   background-image:url('../assets/images/table-tex.jpg');
   background-size:480px; background-repeat:repeat;
-  mix-blend-mode:overlay; opacity:.85;
+  mix-blend-mode:overlay;
 }
 body::after{
   content:""; position:fixed; inset:-40px; z-index:-1; pointer-events:none;
