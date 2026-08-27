@@ -20,7 +20,7 @@ body{
 body::before{
   content:""; position:fixed; inset:-40px; z-index:-2;
   background-image:url('../assets/images/table-tex.jpg');
-  background-size:1600px; background-repeat:repeat;
+  background-size:1024px; background-repeat:repeat;
   mix-blend-mode:overlay;
 }
 body::after{
