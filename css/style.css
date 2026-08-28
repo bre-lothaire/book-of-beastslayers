@@ -27,7 +27,7 @@ body::after{
   content:""; position:fixed; inset:-40px; z-index:-1; pointer-events:none;
   background-image:radial-gradient(ellipse at center, rgba(10,7,4,0) 20%, rgba(10,7,4,.5) 55%, rgba(6,4,2,.92) 95%);
 }
-.candle-wrap{ position:fixed; z-index:2; left:3vw; top:6vh; pointer-events:none; }
+.candle-wrap{ position:fixed; z-index:2; left:10vw; top:14vh; pointer-events:none; }
 .candle-glow{ position:absolute; left:50%; top:38%;
   width:1440px; height:1440px; border-radius:50%;
   background:radial-gradient(circle, rgba(255,185,90,.4) 0%, rgba(255,185,90,.18) 35%, transparent 68%);
