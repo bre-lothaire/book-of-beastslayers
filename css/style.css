@@ -27,7 +27,7 @@ body::after{
   content:""; position:fixed; inset:-40px; z-index:-1; pointer-events:none;
   background-image:radial-gradient(ellipse at center, rgba(10,7,4,0) 20%, rgba(10,7,4,.5) 55%, rgba(6,4,2,.92) 95%);
 }
-.candle-wrap{ position:fixed; z-index:2; left:3vw; bottom:6vh; pointer-events:none; }
+.candle-wrap{ position:fixed; z-index:2; left:3vw; top:6vh; pointer-events:none; }
 .candle-glow{ position:absolute; left:50%; top:38%;
   width:520px; height:520px; border-radius:50%;
   background:radial-gradient(circle, rgba(255,185,90,.4), transparent 70%);
@@ -35,13 +35,13 @@ body::after{
   animation:candle-glow-flicker 2.6s ease-in-out infinite; }
 .candle-img{ position:relative; width:clamp(70px,8vw,120px); display:block;
   filter:drop-shadow(0 8px 18px rgba(0,0,0,.55));
-  animation:candle-flicker 2.1s ease-in-out infinite; transform-origin:50% 60%; }
-@keyframes candle-flicker{
-  0%,100%{ opacity:1; transform:scale(1); }
-  20%{ opacity:.88; transform:scale(.97); }
-  45%{ opacity:1; transform:scale(1.02); }
-  60%{ opacity:.92; transform:scale(.99); }
-  80%{ opacity:1; transform:scale(1.01); }
+  animation:candle-brightness-flicker 2.1s ease-in-out infinite; }
+@keyframes candle-brightness-flicker{
+  0%,100%{ filter:drop-shadow(0 8px 18px rgba(0,0,0,.55)) brightness(1); }
+  20%{ filter:drop-shadow(0 8px 18px rgba(0,0,0,.55)) brightness(.94); }
+  45%{ filter:drop-shadow(0 8px 18px rgba(0,0,0,.55)) brightness(1.04); }
+  60%{ filter:drop-shadow(0 8px 18px rgba(0,0,0,.55)) brightness(.97); }
+  80%{ filter:drop-shadow(0 8px 18px rgba(0,0,0,.55)) brightness(1.02); }
 }
 @keyframes candle-glow-flicker{
   0%,100%{ opacity:1; transform:translate(-50%,-50%) scale(1); }
