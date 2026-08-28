@@ -29,13 +29,13 @@ body::after{
 }
 .candle-wrap{ position:fixed; z-index:2; left:3vw; top:6vh; pointer-events:none; }
 .candle-glow{ position:absolute; left:50%; top:38%;
-  width:1600px; height:1600px; border-radius:50%;
+  width:1440px; height:1440px; border-radius:50%;
   background:radial-gradient(circle, rgba(255,185,90,.4) 0%, rgba(255,185,90,.18) 35%, transparent 68%);
   mix-blend-mode:screen; filter:blur(30px); z-index:-1;
-  animation:candle-glow-flicker 2.6s ease-in-out infinite; }
+  animation:candle-glow-flicker 3.1s ease-in-out infinite; }
 .candle-img{ position:relative; width:clamp(90px,10vw,150px); display:block;
   filter:drop-shadow(0 8px 18px rgba(0,0,0,.55));
-  animation:candle-brightness-flicker 2.1s ease-in-out infinite; }
+  animation:candle-brightness-flicker 2.5s ease-in-out infinite; }
 @keyframes candle-brightness-flicker{
   0%,100%{ filter:drop-shadow(0 8px 18px rgba(0,0,0,.55)) brightness(1); }
   20%{ filter:drop-shadow(0 8px 18px rgba(0,0,0,.55)) brightness(.94); }
